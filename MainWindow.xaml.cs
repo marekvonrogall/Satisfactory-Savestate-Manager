@@ -32,8 +32,16 @@ namespace SatisfactorySavestateManager
             steamInfo.GetSteamProfileInfo();
             labelUserName.Content = steamInfo.DisplayName;
             SetImageFromUrl(steamInfo.ProfilePicUrl);
-            canvasSetup.Visibility = Visibility.Hidden;
-            if(!config.IsPrivateKeySet()) { canvasSetup.Visibility = Visibility.Visible; }
+            if(config.IsPrivateKeySet() && config.IsSaveStatePathValid())
+            {
+                canvasUploadDownload.Visibility = Visibility.Visible;
+                canvasSetup.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                canvasSetup.Visibility = Visibility.Visible;
+                canvasUploadDownload.Visibility = Visibility.Hidden;
+            }
 
             //Properties.Settings.Default.SaveLocation = null;
             //Properties.Settings.Default.PrivateKeyJSONPath = null;
@@ -94,14 +102,32 @@ namespace SatisfactorySavestateManager
         private void buttonSelectSaveStatePath_Click(object sender, RoutedEventArgs e)
         {
             config.SelectSaveStatePath();
-            AllSetUp();
+            if(config.IsSaveStatePathValid())
+            {
+                AllSetUp();
+            }
+            else
+            {
+                step2Ellipse.Stroke = colorRed;
+                Properties.Settings.Default.SaveLocation = null;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void buttonSetDefaultSaveStatePath_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.SaveLocation = Path.Combine(steamInfo.DefaultSavePath, steamInfo.Steam64ID);
             Properties.Settings.Default.Save();
-            AllSetUp();
+            if (config.IsSaveStatePathValid())
+            {
+                AllSetUp();
+            }
+            else
+            {
+                step2Ellipse.Stroke = colorRed;
+                Properties.Settings.Default.SaveLocation = null;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void AllSetUp()
@@ -132,6 +158,7 @@ namespace SatisfactorySavestateManager
         private void buttonGetStarted_Click(object sender, RoutedEventArgs e)
         {
             canvasSetup.Visibility = Visibility.Hidden;
+            canvasUploadDownload.Visibility = Visibility.Visible;
         }
     }
 }

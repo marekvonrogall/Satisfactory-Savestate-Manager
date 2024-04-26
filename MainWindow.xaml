@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatisfactorySavestateManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width=" 690">
+        Title="Satisfactory Savestate Manager" Height="600" Width=" 690">
     <Grid Background="#FF34394A">
         <Rectangle HorizontalAlignment="Left" Height="100" Stroke="#FFA6B2C5" VerticalAlignment="Top" Width="690" Fill="#FFA6B2C5"/>
         <Label Content="Satisfactory Savestate Manager" HorizontalAlignment="Left" Margin="114,15,0,0" VerticalAlignment="Top" Height="50" Width="1204" Foreground="White" FontSize="30" FontWeight="Bold"/>
-        <Canvas x:Name="canvasSetup" Margin="0,100,0,0">
+        <Canvas x:Name="canvasSetup" Margin="0,100,0,0" Visibility="Hidden">
             <Label x:Name="step1Label" Content="Import your Google Drive Credentials." Canvas.Left="154" Canvas.Top="67" Height="46" Width="564" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Ellipse x:Name="step1Ellipse" Height="50" Canvas.Left="80" Stroke="#FFF5D183" StrokeThickness="5" Canvas.Top="63" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Label x:Name="step1EllipseLabel" Content="1" Canvas.Left="92" Canvas.Top="65" Height="50" Width="50" Foreground="White" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -60,5 +60,21 @@
                 <ImageBrush/>
             </Ellipse.Fill>
         </Ellipse>
+        <Canvas x:Name="canvasUploadDownload" Margin="0,100,0,0">
+            <Button x:Name="buttonDownload" Content="Download" Canvas.Left="134" Canvas.Top="388" Height="52" Width="422" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonUpload" Content="Upload" Canvas.Left="134" Canvas.Top="321" Height="52" Width="422" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Canvas>
     </Grid>
 </Window>

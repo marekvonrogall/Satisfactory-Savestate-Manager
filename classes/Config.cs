@@ -82,7 +82,7 @@ namespace SatisfactorySavestateManager.classes
 
         public bool IsSaveStatePathValid()
         {
-            if (SaveStatePath == null) { return false; }
+            if (Properties.Settings.Default.SaveLocation == null || !Directory.Exists(Properties.Settings.Default.SaveLocation)) { return false; }
             else return true;
         }
     }
