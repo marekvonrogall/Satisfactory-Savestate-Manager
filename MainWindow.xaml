@@ -5,8 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatisfactorySavestateManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="850" Width="1400">
-    <Grid>
+        Title="MainWindow" Height="600" Width=" 690">
+    <Grid Background="#FF34394A">
+        <Rectangle HorizontalAlignment="Left" Height="100" Stroke="#FFA6B2C5" VerticalAlignment="Top" Width="690" Fill="#FFA6B2C5"/>
+        <Label Content="Satisfactory Savestate Manager" HorizontalAlignment="Left" Margin="114,15,0,0" VerticalAlignment="Top" Height="50" Width="1204" Foreground="White" FontSize="30" FontWeight="Bold"/>
+        <Canvas x:Name="canvasSetup" Margin="0,100,0,0">
+            <Label x:Name="step1Label" Content="Import your Google Drive Credentials." Canvas.Left="154" Canvas.Top="67" Height="46" Width="564" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Ellipse x:Name="step1Ellipse" Height="50" Canvas.Left="80" Stroke="#FFF5D183" StrokeThickness="5" Canvas.Top="63" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label x:Name="step1EllipseLabel" Content="1" Canvas.Left="92" Canvas.Top="65" Height="50" Width="50" Foreground="White" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Ellipse x:Name="step2Ellipse" Height="50" Canvas.Left="80" Stroke="#FF737070" StrokeThickness="5" Canvas.Top="187" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" OpacityMask="Black"/>
+            <Label x:Name="step2EllipseLabel" Content="2" Canvas.Left="93" Canvas.Top="189" Height="50" Width="50" Foreground="#FF737070" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.52,2.761" OpacityMask="Black"/>
+            <Label x:Name="step2Label" Content="Select the local save game location." Canvas.Left="154" Canvas.Top="189" Height="46" Width="564" Foreground="#FF737070" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" OpacityMask="Black"/>
+            <Ellipse x:Name="step3Ellipse" Height="50" Canvas.Left="80" Stroke="#FF737070" StrokeThickness="5" Canvas.Top="308" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" OpacityMask="Black"/>
+            <Label x:Name="step3EllipseLabel" Content="3" Canvas.Left="93" Canvas.Top="310" Height="50" Width="50" Foreground="#FF737070" FontSize="25" FontWeight="Bold" RenderTransformOrigin="0.52,2.761" HorizontalAlignment="Center" VerticalAlignment="Top" OpacityMask="Black"/>
+            <Label x:Name="step3Label" Content="You're set up and ready to go!" Canvas.Left="154" Canvas.Top="310" Height="46" Width="564" Foreground="#FF737070" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" OpacityMask="Black"/>
+            <Rectangle x:Name="step1Bar1" Height="21" Canvas.Left="102" Stroke="White" Canvas.Top="123" Width="6" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Rectangle x:Name="step1Bar2" Height="21" Canvas.Left="102" Stroke="White" Canvas.Top="158" Width="6" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Rectangle x:Name="step2Bar1" Height="21" Canvas.Left="102" Stroke="#FF737070" Canvas.Top="245" Width="6" Fill="#FF737070" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Rectangle x:Name="step2Bar2" Height="21" Canvas.Left="102" Stroke="#FF737070" Canvas.Top="280" Width="6" Fill="#FF737070" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Name="buttonImportDriveCredentials" Content="Import" Canvas.Left="154" Canvas.Top="117" Height="52" Width="422" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" Click="buttonImportDriveCredentials_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonSelectSaveStatePath" Content="Select Custom" Canvas.Left="484" Canvas.Top="239" Height="52" Width="92" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False" Opacity="0.4" Click="buttonSelectSaveStatePath_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonSetDefaultSaveStatePath" Content="Set Default" Canvas.Left="154" Canvas.Top="239" Height="52" Width="314" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" IsEnabled="False" Opacity="0.4" HorizontalAlignment="Center" VerticalAlignment="Top" Click="buttonSetDefaultSaveStatePath_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonGetStarted" Content="Get Started!" Canvas.Left="154" Canvas.Top="361" Height="52" Width="422" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0.4" IsEnabled="False" Click="buttonGetStarted_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
+
+        </Canvas>
+        <Label x:Name="labelUserName" FontSize="20" Foreground="White" Margin="113,47,-9,474"/>
+        <Ellipse x:Name="imageProfilePicture" HorizontalAlignment="Left" Height="75" Margin="20,13,0,0" Stroke="White" StrokeThickness="7" VerticalAlignment="Top" Width="75">
+            <Ellipse.Fill>
+                <ImageBrush/>
+            </Ellipse.Fill>
+        </Ellipse>
     </Grid>
 </Window>
