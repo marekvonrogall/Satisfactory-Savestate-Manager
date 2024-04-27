@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using HtmlAgilityPack;
 
@@ -6,7 +7,7 @@ namespace SatisfactorySavestateManager.classes
 {
     public class SteamInfo
     {
-        public string DefaultSavePath { get { return @"C:\\Users\\Marek von Rogall\\AppData\\Local\\FactoryGame\\Saved\\SaveGames"; } }
+        public string DefaultSavePath { get { return Path.Combine( Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FactoryGame", "Saved", "SaveGames"); } }
 
         private string _profilePicUrl = null;
         private string _displayName = null;
