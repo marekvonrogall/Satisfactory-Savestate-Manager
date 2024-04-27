@@ -1,13 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 using System.IO;
-using System.Windows;
 
 namespace SatisfactorySavestateManager.classes
 {
     public class Credentials
     {
-
         public bool AreCredentialsValid(string path)
         {
             try
@@ -26,12 +23,17 @@ namespace SatisfactorySavestateManager.classes
                     jsonObj.ContainsKey("token_uri") &&
                     jsonObj.ContainsKey("auth_provider_x509_cert_url") &&
                     jsonObj.ContainsKey("client_x509_cert_url") &&
-                    jsonObj.ContainsKey("universe_domain"))
+                    jsonObj.ContainsKey("universe_domain") &&
+                    jsonObj.ContainsKey("folder_id"))
                 {
+                    Properties.Settings.Default.FolderID = jsonObj.GetValue("folder_id").ToString();
+                    Properties.Settings.Default.Save();
                     return true;
                 }
                 else
                 {
+                    Properties.Settings.Default.FolderID = null;
+                    Properties.Settings.Default.Save();
                     return false;
                 }
             }

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SatisfactorySavestateManager"
         mc:Ignorable="d"
-        Title="Satisfactory Savestate Manager" Height="600" Width=" 690">
+        Title="Satisfactory Savestate Manager" Height="615" Width="705" ResizeMode="NoResize">
     <Grid Background="#FF34394A">
         <Rectangle HorizontalAlignment="Left" Height="100" Stroke="#FFA6B2C5" VerticalAlignment="Top" Width="690" Fill="#FFA6B2C5"/>
-        <Label Content="Satisfactory Savestate Manager" HorizontalAlignment="Left" Margin="114,15,0,0" VerticalAlignment="Top" Height="50" Width="1204" Foreground="White" FontSize="30" FontWeight="Bold"/>
+        <Label Content="Satisfactory Savestate Manager" HorizontalAlignment="Left" Margin="114,9,0,0" VerticalAlignment="Top" Height="50" Width="1204" Foreground="White" FontSize="30" FontWeight="Bold"/>
         <Canvas x:Name="canvasSetup" Margin="0,100,0,0" Visibility="Hidden">
             <Label x:Name="step1Label" Content="Import your Google Drive Credentials." Canvas.Left="154" Canvas.Top="67" Height="46" Width="564" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Ellipse x:Name="step1Ellipse" Height="50" Canvas.Left="80" Stroke="#FFF5D183" StrokeThickness="5" Canvas.Top="63" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -54,21 +54,42 @@
 
 
         </Canvas>
-        <Label x:Name="labelUserName" FontSize="20" Foreground="White" Margin="113,47,-9,474"/>
+        <Label x:Name="labelUserName" FontSize="20" Foreground="White" Margin="113,46,-9,475"/>
         <Ellipse x:Name="imageProfilePicture" HorizontalAlignment="Left" Height="75" Margin="20,13,0,0" Stroke="White" StrokeThickness="7" VerticalAlignment="Top" Width="75">
             <Ellipse.Fill>
                 <ImageBrush/>
             </Ellipse.Fill>
         </Ellipse>
-        <Canvas x:Name="canvasUploadDownload" Margin="0,100,0,0">
-            <Button x:Name="buttonDownload" Content="Download" Canvas.Left="134" Canvas.Top="388" Height="52" Width="422" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Canvas x:Name="canvasUploadDownload" Margin="0,100,15,0" Visibility="Visible">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="160" Width="624" HorizontalAlignment="Center" Canvas.Top="66" VerticalAlignment="Top" Canvas.Left="29">
+                <StackPanel Name="localSessionContainer">
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="160" Width="624" HorizontalAlignment="Center" Canvas.Top="295" VerticalAlignment="Top" Canvas.Left="31">
+                <StackPanel Name="remoteSessionContainer">
+                </StackPanel>
+            </ScrollViewer>
+
+            <Label x:Name="labelUploadLocal" Content="Upload a local save state:" Canvas.Left="10" Canvas.Top="6" Height="46" Width="429" Foreground="White" FontSize="25" OpacityMask="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="labelDownloadRemote" Content="Download a remote save state:" Canvas.Left="10" Canvas.Top="236" Height="46" Width="459" Foreground="White" FontSize="25" OpacityMask="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Name="buttonBackRemote" Content="Refresh" Canvas.Left="490" Canvas.Top="245" Height="28" Width="180" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="3" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" Click="ButtonBackRemote_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="buttonUpload" Content="Upload" Canvas.Left="134" Canvas.Top="321" Height="52" Width="422" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Border BorderBrush="White" BorderThickness="5,5,5,5" Height="185" Width="653" Canvas.Left="17" Canvas.Top="52" CornerRadius="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Border BorderBrush="White" BorderThickness="5,5,5,5" Height="185" Width="653" Canvas.Left="17" Canvas.Top="281" CornerRadius="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="buttonBackLocal" Content="Refresh" Canvas.Left="490" Canvas.Top="17" Height="28" Width="180" BorderThickness="3" BorderBrush="White" Background="#FFA6B2C5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Click="ButtonBackLocal_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonResetSettings" Content="Settings" Canvas.Left="598" Canvas.Top="-91" Background="#FF34394A" BorderBrush="White" Foreground="White" Height="82" Width="72" BorderThickness="3" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ButtonResetSettings_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>

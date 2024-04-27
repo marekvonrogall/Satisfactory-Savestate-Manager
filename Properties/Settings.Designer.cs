@@ -46,5 +46,17 @@ namespace SatisfactorySavestateManager.Properties {
                 this["PrivateKeyJSONPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FolderID {
+            get {
+                return ((string)(this["FolderID"]));
+            }
+            set {
+                this["FolderID"] = value;
+            }
+        }
     }
 }
