@@ -64,7 +64,7 @@ namespace SatisfactorySavestateManager.classes
             var listRequest = service.Files.List();
             listRequest.Q = $"'{folderId}' in parents";
             listRequest.Fields = "files(name, modifiedTime)";
-            listRequest.OrderBy = "modifiedTime asc";
+            listRequest.OrderBy = "modifiedTime desc";
 
             var files = listRequest.Execute().Files;
             if (files != null && files.Count > 0)
