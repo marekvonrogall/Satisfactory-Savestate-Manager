@@ -1,5 +1,9 @@
 # Satisfactory-Savestate-Manager
 
+> [!IMPORTANT]
+> The 1.0 update brought some changes to the save structure, which is why some functions of the savestate manager no longer work.
+Compatibility with the 1.0 update is in progress.
+
 ## Purpose
 This application is used to synchronize save states of the game "[Satisfactory](https://www.satisfactorygame.com/)" outside of the default Steam cloud, allowing synchronization between multiple users.
 This feature comes in handy if you plan to play with friends and seek a simple solution for syncing the save state. It allows everyone to keep playing on a save state, even if the original session creator isn't available to host the world.
